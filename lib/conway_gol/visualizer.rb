@@ -6,11 +6,10 @@ module ConwayGameOfLife
 
     WIDTH = 800
     HEIGHT = 800
-    CELL_SIZE = 10
+    CELL_SIZE = 20
     CELL_PADDING = 1
     CELLS_X = WIDTH / CELL_SIZE
     CELLS_Y = WIDTH / CELL_SIZE
-
     TICK_DELAY = 200
 
     def initialize(brain)
