@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require "conway_gol"
+
+brain = ConwayGameOfLife::Brain.new
+visualizer = ConwayGameOfLife::Visualizer.new(brain)
+visualizer.show
+
+
