@@ -3,12 +3,15 @@ module ConwayGameOfLife
 
     Cell = Struct.new(:x, :y)
 
-    def tick
-      self
+    attr_reader :cells
+
+    def initialize
+      @cells = []
     end
 
-    def cells
-      []
+    def tick
+      cells.clear
+      self
     end
 
   end

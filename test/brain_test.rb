@@ -20,4 +20,10 @@ class BrainTest < Minitest::Test
     assert_empty subject.tick.cells
   end
 
+  def test_single_cell_dies_alone
+    subject.cells << ConwayGameOfLife::Brain::Cell.new(2, 2)
+    subject.tick
+    assert_empty subject.cells
+  end
+
 end
