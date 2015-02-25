@@ -20,6 +20,10 @@ Run
 Hacking on it
 =============
 
+You may need some libs for gosu. See this page for details:
+
+[http://www.libgosu.org/](http://www.libgosu.org/)
+
 Install some dependencies:
 
     bundle install

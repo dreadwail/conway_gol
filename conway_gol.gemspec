@@ -3,7 +3,7 @@ require "conway_gol/version"
 
 Gem::Specification.new do |s|
 
-  s.name = "game_of_life"
+  s.name = "conway_gol"
   s.version = ConwayGameOfLife::VERSION
   s.authors = ["Ben Lakey"]
   s.summary = "Conway's Game of Life implemented in ruby."
