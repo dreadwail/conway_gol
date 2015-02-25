@@ -4,7 +4,11 @@ module ConwayGameOfLife
     attr_reader :cells
 
     def initialize
-      @cells = []
+      @cells = Hash.new({})
+    end
+
+    def spawn(x, y)
+      @cells[x][y] = true
     end
 
     def tick
