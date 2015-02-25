@@ -11,8 +11,10 @@ module ConwayGameOfLife
     CELLS_X = WIDTH / CELL_SIZE
     CELLS_Y = WIDTH / CELL_SIZE
 
+    TICK_DELAY = 500
+
     def initialize(brain)
-      super(WIDTH, HEIGHT, false)
+      super(WIDTH, HEIGHT, false, TICK_DELAY)
       self.caption = "Conway's Game of Life"
       @brain = brain
     end

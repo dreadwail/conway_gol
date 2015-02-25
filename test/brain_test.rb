@@ -41,4 +41,16 @@ class BrainTest < Minitest::Test
     assert_empty subject.cells
   end
 
+  def test_reproduction_row
+    subject << Brain::Cell.new(0, 1)
+    subject << Brain::Cell.new(1, 1)
+    subject << Brain::Cell.new(2, 1)
+    subject.tick
+    assert_equal [
+      Brain::Cell.new(1, 0),
+      Brain::Cell.new(1, 1),
+      Brain::Cell.new(1, 2),
+    ].sort_by { |c| [c.x, c.y] }, subject.cells
+  end
+
 end
