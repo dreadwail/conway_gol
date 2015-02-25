@@ -3,7 +3,19 @@
 require "conway_gol"
 
 brain = ConwayGameOfLife::Brain.new
+
+# acorn-style seed data
+[
+  ConwayGameOfLife::Brain::Cell.new(22, 21),
+  ConwayGameOfLife::Brain::Cell.new(21, 23),
+  ConwayGameOfLife::Brain::Cell.new(22, 23),
+  ConwayGameOfLife::Brain::Cell.new(24, 22),
+  ConwayGameOfLife::Brain::Cell.new(25, 23),
+  ConwayGameOfLife::Brain::Cell.new(26, 23),
+  ConwayGameOfLife::Brain::Cell.new(27, 23)
+].each do |cell|
+  brain << cell
+end
+
 visualizer = ConwayGameOfLife::Visualizer.new(brain)
 visualizer.show
-
-
