@@ -4,10 +4,11 @@ module ConwayGameOfLife
     Cell = Struct.new(:x, :y)
 
     def tick
+      self
     end
 
     def cells
-      [Cell.new(5, 6)]
+      []
     end
 
   end
