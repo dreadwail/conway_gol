@@ -3,6 +3,7 @@ require "rake/testtask"
 
 require "bundler"
 Bundler.setup(:default)
+require "conway_gol"
 
 Rake::TestTask.new do |t|
   t.libs << "test"
