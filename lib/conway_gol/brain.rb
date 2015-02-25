@@ -1,20 +1,28 @@
 module ConwayGameOfLife
   class Brain
 
-    attr_reader :cells
+    Cell = Struct.new(:x, :y)
 
     def initialize
-      @cells = Hash.new({})
+      @lookup = {}
     end
 
-    def spawn(x, y)
-      @cells[x][y] = true
+    def cells
+      lookup.map { |(x, y)| y.values }.flatten
+    end
+
+    def <<(cell)
+      (lookup[cell.x] ||= {})[cell.y] = cell
     end
 
     def tick
-      cells.clear
+      lookup.clear
       self
     end
+
+    private
+
+    attr_reader :lookup
 
   end
 end

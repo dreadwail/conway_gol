@@ -22,20 +22,21 @@ class BrainTest < Minitest::Test
   end
 
   def test_cells_are_tracked
-    subject.spawn(5, 2)
-    assert subject.cells[5][2]
+    cell = Brain::Cell.new(5, 2)
+    subject << cell
+    assert_equal [cell], subject.cells
   end
 
   def test_single_cell_dies_alone
-    subject.spawn(2, 2)
+    subject << Brain::Cell.new(2, 2)
     subject.tick
     assert_empty subject.cells
   end
 
   def test_isolated_cells_die
-    subject.spawn(0, 0)
-    subject.spawn(2, 2)
-    subject.spawn(4, 4)
+    subject << Brain::Cell.new(0, 0)
+    subject << Brain::Cell.new(2, 2)
+    subject << Brain::Cell.new(4, 4)
     subject.tick
     assert_empty subject.cells
   end
