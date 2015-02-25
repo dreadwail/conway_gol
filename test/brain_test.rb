@@ -20,6 +20,12 @@ class BrainTest < Minitest::Test
     assert_empty subject.tick.cells
   end
 
+  def test_cells_are_tracked
+    cell = ConwayGameOfLife::Brain::Cell.new(5, 2)
+    subject.cells << cell
+    assert_equal [cell], subject.cells
+  end
+
   def test_single_cell_dies_alone
     subject.cells << ConwayGameOfLife::Brain::Cell.new(2, 2)
     subject.tick
