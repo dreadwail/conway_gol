@@ -23,19 +23,17 @@ module ConwayGameOfLife
     end
 
     def draw
-      brain.cells.select do |cell|
-        cell.x.between?(0, CELLS_X) && cell.y.between?(0, CELLS_Y)
-      end.each do |cell|
-        draw_cell(cell)
-      end
+      brain.cells
+        .select { |(x, y)| x.between?(0, CELLS_X) && y.between?(0, CELLS_Y) }
+        .each { |(x, y)| draw_cell(x, y) }
     end
 
     def button_down(id)
       close if id == Gosu::KbEscape
     end
 
-    def draw_cell(cell)
-      x1, y1 = cell.x * CELL_SIZE, cell.y * CELL_SIZE
+    def draw_cell(x, y)
+      x1, y1 = x * CELL_SIZE, y * CELL_SIZE
       cell_dimension = CELL_SIZE - CELL_PADDING
       x2, y2 = x1 + cell_dimension, y1 + cell_dimension
       draw_quad(x1, y1, COLOR, x1, y2, COLOR, x2, y2, COLOR, x2, y1, COLOR)
