@@ -4,11 +4,15 @@ module ConwayGameOfLife
   class Visualizer < Gosu::Window
     COLOR = Gosu::Color::WHITE
 
+    WIDTH = 800
+    HEIGHT = 800
     CELL_SIZE = 10
     CELL_PADDING = 1
+    CELLS_X = WIDTH / CELL_SIZE
+    CELLS_Y = WIDTH / CELL_SIZE
 
     def initialize(brain)
-      super(800, 800, false)
+      super(WIDTH, HEIGHT, false)
       self.caption = "Conway's Game of Life"
       @brain = brain
     end
@@ -18,7 +22,9 @@ module ConwayGameOfLife
     end
 
     def draw
-      brain.cells.each do |cell|
+      brain.cells.select do |cell|
+        cell.x.between?(0, CELLS_X) && cell.y.between?(0, CELLS_Y)
+      end.each do |cell|
         draw_cell(cell)
       end
     end
