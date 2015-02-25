@@ -1,8 +1,6 @@
 module ConwayGameOfLife
   class Brain
 
-    Cell = Struct.new(:x, :y)
-
     attr_reader :cells
 
     def initialize
