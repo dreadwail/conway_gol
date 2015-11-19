@@ -1,33 +1,35 @@
 module ConwayGameOfLife
   class World
 
-    attr_accessor :cells, :width, :height
+    MIN_WIDTH  = 40
+    MIN_HEIGHT = 40
 
-    def initialize(width: 40, height: 40)
-      @cells = []
-      @width = width
-      @height = height
+    attr_accessor :cells
+
+    def initialize(cells: Array.new(MIN_HEIGHT, Array.new(MIN_WIDTH, 0)))
+      @cells = cells
     end
 
-    def spawn(x, y)
-      cells << [x, y]
-      self
+    def width
+      [cells[0] && cells[0].length, MIN_WIDTH].max
+    end
+
+    def height
+      [cells.length, MIN_HEIGHT].max
     end
 
     def tick
-      alive = reproduce_candidates
-      dead = (reap_candidates - alive)
-      self.cells = (cells - dead + alive).uniq
+      self.cells = (cells - reaped + sown).uniq
       self
     end
 
     private
 
-    def reap_candidates
+    def reaped
       cells.select { |(x, y)| !neighbors(x, y).length.between?(2, 3) }
     end
 
-    def reproduce_candidates
+    def sown
       cells
         .map { |(x,y)| search_space(x, y) }
         .flatten(1).uniq
