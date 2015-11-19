@@ -1,2 +1,2 @@
 require "conway_gol/visualizer"
-require "conway_gol/brain"
+require "conway_gol/world"

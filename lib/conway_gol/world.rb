@@ -1,10 +1,12 @@
 module ConwayGameOfLife
-  class Brain
+  class World
 
-    attr_accessor :cells
+    attr_accessor :cells, :width, :height
 
-    def initialize
+    def initialize(width: 40, height: 40)
       @cells = []
+      @width = width
+      @height = height
     end
 
     def spawn(x, y)

@@ -1,12 +1,12 @@
 require "test_helper"
 
-class BrainTest < Minitest::Test
+class WorldTest < Minitest::Test
   include ConwayGameOfLife
 
   attr_reader :subject
 
   def setup
-    @subject = Brain.new
+    @subject = World.new
   end
 
   def test_new_game_has_no_cells

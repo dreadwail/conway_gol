@@ -2,7 +2,7 @@
 
 require "conway_gol"
 
-brain = ConwayGameOfLife::Brain.new
+world = ConwayGameOfLife::World.new
 
 # acorn-style seed data
 [
@@ -14,8 +14,8 @@ brain = ConwayGameOfLife::Brain.new
   [26, 23],
   [27, 23]
 ].each do |(x, y)|
-  brain.spawn(x, y)
+  world.spawn(x, y)
 end
 
-visualizer = ConwayGameOfLife::Visualizer.new(brain)
+visualizer = ConwayGameOfLife::Visualizer.new(world)
 visualizer.show
