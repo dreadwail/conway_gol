@@ -5,12 +5,12 @@ Gem::Specification.new do |s|
 
   s.name = "conway_gol"
   s.version = ConwayGameOfLife::VERSION
-  s.authors = ["Ben Lakey"]
+  s.authors = ["Dreadwail"]
   s.summary = "Conway's Game of Life implemented in ruby."
   s.description = "This is an implementation of Conway's Game of Life for a Seattle.rb workshop."
   s.licenses = ["MIT"]
-  s.homepage = "https://github.com/benlakey/conway_gol"
-  s.email = "benlakey@gmail.com"
+  s.homepage = "https://github.com/dreadwail/conway_gol"
+  s.email = "dreadwail42@gmail.com"
 
   s.files = `git ls-files`.split("\n")
   s.test_files = `git ls-files -- {test,spec}/*`.split("\n")
